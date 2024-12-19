@@ -56,7 +56,7 @@ def main():
     parser.add_argument("output", help="Path to output file.")
     args = parser.parse_args()
 
-    with open('config.toml', 'r', encoding="utf-8") as f:
+    with open(args.input, 'r', encoding="utf-8") as f:
         config = toml.load(f)
 
     config_lang_output = translate(config, root=True)
