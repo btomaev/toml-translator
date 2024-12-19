@@ -1,0 +1,10 @@
+max_temp = 24
+
+[lighting]
+living_room = { brightness = 75, color = 222222222 }
+bedroom = { brightness = 50, color = 555555555 }
+temp = "^(- max_temp 2)"
+
+[security]
+alarm_enabled = true
+camera = { resolution = 1080, fps = 30 }

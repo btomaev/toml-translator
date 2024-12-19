@@ -1,0 +1,10 @@
+squared_error_threshold = 1024
+
+[monitoring]
+interval = 60
+alert_threshold = 80
+
+[sensors]
+temperature = { unit_type = 0, precision = 0.1 }
+humidity = { unit_type = 1, precision = 1 }
+normal_error_threshold = "^(sqrt squared_error_threshold)"

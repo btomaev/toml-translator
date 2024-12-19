@@ -1,0 +1,10 @@
+num_servers = 100
+db_max_conn = 100
+
+[server]
+host_id = 0
+port = 8080
+max_ram = 4096
+
+[database]
+max_connections = "^(+ db_max_conn 50)"
