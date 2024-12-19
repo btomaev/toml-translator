@@ -10,7 +10,7 @@ def verify_name(name: str):
     return isinstance(name, str) and re.fullmatch(r"[_a-zA-Z][_a-zA-Z0-9]*", name)
 
 def verify_expr(expr: str):
-    return isinstance(expr, str) and re.fullmatch(r"\^\((\S+) (\S+) (\d*(?:\.\d*)?)?\)", expr)
+    return isinstance(expr, str) and re.fullmatch(r"\^\((\S+)\s*(\S+)\s*(\d*(?:\.\d*)?)?\)", expr)
     
 def translate(obj, scope: dict={}, depth=0, root: bool=False):
     if isinstance(obj, dict):
