@@ -20,9 +20,10 @@ def translate(obj, scope: dict={}, depth=0, root: bool=False):
         for key, value in obj.items():
             if not verify_name(key):
                 raise NameError(f"Names should be [_a-zA-Z][_a-zA-Z0-9]* but \"{key}\" found")
+            value = translate(value, scope, depth+1)
             if root and isinstance(value, (int, float)):
                 scope.update({key: value})
-            result.append(f"{ f"const {key} = " if root else f"{' ' * 4 * depth}{key} : "}{translate(value, scope, depth+1)}{";" if root else ","}")
+            result.append(f"{ f"const {key} = " if root else f"{' ' * 4 * depth}{key} : "}{value}{";" if root else ","}")
         if not root:
             result.append(f"{' ' * 4 * (depth - 1)}}}")
         return "\n".join(result)
